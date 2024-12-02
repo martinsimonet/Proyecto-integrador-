@@ -14,3 +14,7 @@ Este repositorio contiene el análisis exploratorio y limpieza de datos de patro
 ### Ver la estructura de la tabla
 ```sql
 DESCRIBE sleeping_patterns.student_sleep_patterns;
+
+Explicación:
+
+Este comando muestra los nombres de las columnas, tipos de datos y detalles de la tabla
