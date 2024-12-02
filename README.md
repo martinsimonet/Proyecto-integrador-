@@ -11,10 +11,43 @@ Este repositorio contiene el análisis exploratorio y limpieza de datos de patro
 
 ## Consultas iniciales
 
-### Ver la estructura de la tabla
+## Paso 1: Ver la estructura de la tabla
+### Código utilizando el comando: DESCRIBE 
 ```sql
 DESCRIBE sleeping_patterns.student_sleep_patterns;
+```
+### Explicación
+Este comando permite inspeccionar la estructura de la tabla student_sleep_patterns en el esquema sleeping_pattern. Muestra:
 
-Explicación:
+- Nombres de las columnas.
+- Tipos de datos.
+- Información sobre si permiten valores nulos.
 
-Este comando muestra los nombres de las columnas, tipos de datos y detalles de la tabla
+## Paso 2: Obtener una muestra de datos
+### Código limitando las primeras 10 filas de la tabla
+```SELECT * 
+FROM sleeping_patterns.student_sleep_patterns
+LIMIT 10;
+```
+### Explicación:
+
+Selecciona las primeras 10 filas de la tabla para inspeccionar cómo se ven los datos y detectar posibles problemas.
+
+## Paso 3: Estadísticas básicas por columna
+### Código
+
+```SELECT 
+    COUNT(*) AS total_rows,
+    COUNT(DISTINCT student_id) AS unique_students,
+    AVG(sleep_duration) AS avg_sleep,
+    MIN(sleep_duration) AS min_sleep,
+    MAX(sleep_duration) AS max_sleep
+FROM sleeping_patterns.student_sleep_patterns;
+```
+
+### Explicación:
+
+- COUNT(*): Cuenta el total de filas de la tabla.
+- COUNT(DISTINCT student_id): Verifica si hay duplicados en el identificador de estudiantes.
+- AVG, MIN, MAX: Calcula el promedio, mínimo y máximo de la duración del sueño registrada.
+
