@@ -11,62 +11,138 @@ Este proyecto forma parte del **bootcamp de análisis de datos en Unicorn Academ
 
 ## 📝 Guía paso a paso  
 
-### 🟡 **Paso 1: Inspeccionar la estructura de la tabla**
-**¿Por qué?**  
-Antes de trabajar con una base de datos, es crucial entender cómo está estructurada. Esto incluye las columnas disponibles, sus tipos de datos y restricciones.  
+### 🔨 **Paso 1: Configuración de la base de datos**
+Incluye los pasos iniciales para establecer la base de datos y asegurarte de trabajar en el esquema correcto.
 
-**Código**  
-```DESCRIBE sleeping_pattern.student_sleep_patterns;```
+Para asegurarnos de trabajar en el esquema correcto donde almacenaremos nuestras tablas. 
 
-Explicación
-Este comando nos muestra:
+**Código SQL:**
 
-- Los nombres de las columnas.
-- Tipos de datos (por ejemplo, VARCHAR, INT, etc.).
-- Si las columnas permiten valores nulos.
+-- Seleccionar el esquema correcto
+ ``` USE sleeping_patterns; ```
 
-## 🔵 Paso 2: Obtener una muestra de datos
-
-###¿Por qué?
-Es importante ver una pequeña muestra de los datos para detectar posibles problemas como valores nulos, inconsistencias o errores en el formato.
-
-### Código limitando las primeras 10 filas de la tabla
-```SELECT * 
-FROM sleeping_patterns.student_sleep_patterns
-LIMIT 10;
-```
 ### Explicación:
+Esto asegura que cualquier tabla que creemos o modifiquemos se haga en la base de datos sleeping_patterns.
 
-Este comando selecciona las primeras 10 filas de la tabla student_sleep_patterns, lo cual permite:
 
-- Revisar la calidad y consistencia de los datos.
-- Identificar cualquier valor anómalo.
+---
 
-## 🟢 Paso 3: Estadísticas básicas por columna
-### Código
 
-### ¿Por qué?
-Obtener estadísticas básicas te da una visión general de los datos y ayuda a identificar patrones iniciales, valores extremos o problemas.
 
-```SELECT 
-    COUNT(*) AS total_rows,
-    COUNT(DISTINCT student_id) AS unique_students,
-    AVG(sleep_duration) AS avg_sleep,
-    MIN(sleep_duration) AS min_sleep,
-    MAX(sleep_duration) AS max_sleep
+### 🛠️ Paso 2: Creación de tablas
+Aquí explicamos cómo se separaron los datos en tres tablas: `students`, `sleep_patterns` y `lifestyle`.
+Para mejorar la organización y el análisis de los datos, dividimos la tabla original `student_sleep_patterns` en tres tablas relacionadas:
+
+1. **`students`**: Contiene información básica de los estudiantes.
+2. **`sleep_patterns`**: Incluye datos relacionados con los hábitos de sueño.
+3. **`lifestyle`**: Registra los hábitos y actividades de los estudiantes.
+
+**Código SQL:**
+
+
+-- Crear la tabla `students`
+```
+CREATE TABLE sleeping_patterns.students (
+    Student_ID INT PRIMARY KEY,
+    Age INT,
+    Gender VARCHAR(10),
+    University_Year VARCHAR(20)
+);
+```
+
+-- Crear la tabla `sleep_patterns`
+```
+CREATE TABLE sleeping_patterns.sleep_patterns (
+    Pattern_ID INT AUTO_INCREMENT PRIMARY KEY,
+    Student_ID INT,
+    Sleep_Duration FLOAT,
+    Sleep_Quality INT,
+    Weekday_Sleep_Start TIME,
+    Weekday_Sleep_End TIME,
+    Weekend_Sleep_Start TIME,
+    Weekend_Sleep_End TIME,
+    FOREIGN KEY (Student_ID) REFERENCES sleeping_patterns.students(Student_ID)
+);
+```
+
+-- Crear la tabla `lifestyle`
+```
+CREATE TABLE sleeping_patterns.lifestyle (
+    Lifestyle_ID INT AUTO_INCREMENT PRIMARY KEY,
+    Student_ID INT,
+    Study_Hours FLOAT,
+    Screen_Time FLOAT,
+    Caffeine_Intake FLOAT,
+    Physical_Activity FLOAT,
+    FOREIGN KEY (Student_ID) REFERENCES sleeping_patterns.students(Student_ID)
+);
+
+```
+### ✍️ Explicación:
+
+- **Normalización de datos:** Dividimos la tabla principal en entidades separadas para evitar redundancias.
+- **Claves primarias y foráneas:** Establecimos relaciones entre las tablas mediante claves primarias `(Student_ID)` y foráneas `(Student_ID en las tablas relacionadas)`.
+- **Relaciones:** Ahora es posible combinar estas tablas mediante consultas `JOIN`.
+
+
+---
+
+### **📤 Paso 3: Poblar las tablas**
+Explicamos cómo transferimos los datos de la tabla original `student_sleep_patterns` a las nuevas tablas.
+Transferimos los datos de la tabla original a las nuevas tablas utilizando consultas `INSERT INTO ... SELECT`.
+
+**Código SQL:**
+
+-- Popular la tabla `students`
+```
+INSERT INTO sleeping_patterns.students (Student_ID, Age, Gender, University_Year)
+SELECT DISTINCT Student_ID, Age, Gender, University_Year
 FROM sleeping_patterns.student_sleep_patterns;
 ```
 
-### Explicación:
+-- Popular la tabla `sleep_patterns`
+```
+INSERT INTO sleeping_patterns.sleep_patterns (Student_ID, Sleep_Duration, Sleep_Quality, Weekday_Sleep_Start, Weekday_Sleep_End, Weekend_Sleep_Start, Weekend_Sleep_End)
+SELECT Student_ID, Sleep_Duration, Sleep_Quality, Weekday_Sleep_Start, Weekday_Sleep_End, Weekend_Sleep_Start, Weekend_Sleep_End
+FROM sleeping_patterns.student_sleep_patterns;
+```
 
-Este comando calcula:
+-- Popular la tabla `lifestyle`
+```
+INSERT INTO sleeping_patterns.lifestyle (Student_ID, Study_Hours, Screen_Time, Caffeine_Intake, Physical_Activity)
+SELECT Student_ID, Study_Hours, Screen_Time, Caffeine_Intake, Physical_Activity
+FROM sleeping_patterns.student_sleep_patterns;
+```
 
-- Total de registros (COUNT(*)).
-- Número de estudiantes únicos (COUNT(DISTINCT student_id)).
-- Duración promedio del sueño (AVG(sleep_duration)).
-- Duración mínima y máxima (MIN y MAX).
+### ✍️ Explicación:
 
+- **Selección de datos:** Usamos `DISTINCT` para evitar duplicados en la tabla `students`
+- **División lógica:** Los datos se asignan a la tabla correspondiente según su propósito.
+- **Validación:** Cada tabla ahora contiene únicamente los datos relacionados con su entidad.
 
+---
+
+### 📊 Paso 4: Verificar la estructura y datos
+Aquí mostramos cómo verificar que las tablas se hayan creado correctamente y estén bien pobladas.
+Después de crear y poblar las tablas, verificamos que todo esté correcto.
+
+**Código SQL:**
+-- Revisar las tablas creadas en el esquema `sleeping_pattern`
+```
+SHOW TABLES FROM sleeping_patterns;
+```
+
+-- Revisar las primeras filas de cada tabla
+```
+SELECT * FROM sleeping_patterns.students LIMIT 10; 
+SELECT * FROM sleeping_patterns.sleep_patterns LIMIT 10;
+SELECT * FROM sleeping_patterns.lifestyle LIMIT 10;
+```
+
+### ✍️ Explicación:
+
+- **`SHOW TABLES`**: Muestra todas las tablas del esquema.
+- **`SELECT * ... LIMIT`**: Permite visualizar una muestra de los datos en cada tabla.
 
 
 --------------------------------------------------
@@ -86,6 +162,7 @@ CREATE TABLE estudiantes (
     id_nivel_educativo INT,
     id_tipo_almuerzo INT,
     id_curso_preparacion INT);
+
 CREATE TABLE niveles_educativos_padres (
     id_nivel_educativo INT AUTO_INCREMENT PRIMARY KEY,
     nivel_educativo VARCHAR(100)
