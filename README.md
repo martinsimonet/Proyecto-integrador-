@@ -3,9 +3,32 @@
 Este proyecto forma parte del **bootcamp de análisis de datos en Unicorn Academy** 🎓. Aquí exploraremos cómo los patrones de sueño afectan el rendimiento académico, utilizando herramientas como SQL para el análisis y GitHub para la documentación.  
 
 ## 🚀 Objetivo  
-- **Analizar** patrones de sueño registrados en estudiantes.  
-- **Limpieza y transformación** de datos para garantizar su calidad.  
-- **Relación** con métricas de rendimiento académico (próximos pasos).  
+
+- **Organizar y estructurar la base de datos:**
+Crear un esquema bien estructurado para almacenar los datos relacionados con los patrones de sueño de los estudiantes. Esto incluye dividir la información en varias tablas para facilitar el análisis y mejorar el rendimiento de las consultas.
+
+- **Aplicar las mejores prácticas de SQL:**
+Utilizar comandos SQL eficientes y organizar el código en archivos específicos para cada paso (selección del esquema, creación de tablas, popular las tablas, verificación de datos y limpieza).
+
+- **Facilitar el análisis de datos:**
+Organizar las tablas de forma que sea fácil realizar análisis y visualizaciones en herramientas externas. Utilizar las relaciones entre las tablas para facilitar las consultas complejas, demostrando un uso avanzado de SQL, incluyendo el uso de JOIN.
+
+- **Limpieza de datos:**
+Detectar y manejar los valores nulos, duplicados y cualquier inconsistencia en los datos, utilizando técnicas de limpieza para asegurar que los datos sean precisos y confiables para el análisis.
+
+- **Documentar y explicar el proceso:**
+Documentar cada paso del proyecto de forma detallada, explicando el propósito de cada consulta SQL, para que el proyecto sea fácilmente entendible para otros usuarios. Además, presentar los scripts de SQL bien organizados en la carpeta sql del repositorio.
+
+- **Demostrar habilidades en SQL:**
+Mostrar el dominio de funciones avanzadas de SQL (como JOIN, GROUP BY, HAVING, etc.) y la capacidad para manejar grandes cantidades de datos de forma eficiente.
+
+- **Crear un repositorio bien organizado:**
+Mantener un repositorio de GitHub limpio y bien estructurado con una documentación clara y accesible. Proporcionar un índice interactivo al principio del README.md para facilitar la navegación por los scripts SQL.
+
+- **Optimizar la base de datos para futuras visualizaciones:**
+Organizar las tablas de forma que los datos sean fácilmente exportables a herramientas de visualización de datos, como Power BI o Tableau, permitiendo un análisis visual efectivo en el futuro.
+
+
 ---
 
 ## Índice del Proyecto
