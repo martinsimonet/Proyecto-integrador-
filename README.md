@@ -6,7 +6,14 @@ Este proyecto forma parte del **bootcamp de análisis de datos en Unicorn Academ
 - **Analizar** patrones de sueño registrados en estudiantes.  
 - **Limpieza y transformación** de datos para garantizar su calidad.  
 - **Relación** con métricas de rendimiento académico (próximos pasos).  
+---
 
+## Índice del Proyecto
+1. [🔑 Seleccionar esquema](sql/1-seleccionar-esquema.sql)  
+2. [🏗️ Creación de tablas](sql/2-creación-de-tablas.sql)  
+3. [📥 Popular tablas](sql/3-popular-tablas.sql)  
+4. [✅ Verificación de tablas](sql/4-verificación-tablas.sql)  
+5. [🧹 Limpieza de datos](sql/5-limpieza-de-datos.sql)  
 ---
 
 ## 📝 Guía paso a paso  
