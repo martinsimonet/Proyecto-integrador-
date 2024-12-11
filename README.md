@@ -9,7 +9,7 @@ Este proyecto forma parte del **bootcamp de análisis de datos en Unicorn Academ
 ---
 
 ## Índice del Proyecto
-1. [🔑 Seleccionar esquema](sql/1-seleccionar-esquema.sql)  
+1. [🔑 Seleccionar esquema](sql/1-seleccionar-esquema)  
 2. [🏗️ Creación de tablas](sql/2-creación-de-tablas.sql)  
 3. [📥 Popular tablas](sql/3-popular-tablas.sql)  
 4. [✅ Verificación de tablas](sql/4-verificación-tablas.sql)  
