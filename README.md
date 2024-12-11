@@ -11,7 +11,7 @@ Este proyecto forma parte del **bootcamp de análisis de datos en Unicorn Academ
 
 ## 📝 Guía paso a paso  
 
-### 🔨 **Paso 1: Configuración de la base de datos**
+### 🔨 **Paso 1: Configuración de la base de datos** 
 Incluye los pasos iniciales para establecer la base de datos y asegurarte de trabajar en el esquema correcto.
 
 Para asegurarnos de trabajar en el esquema correcto donde almacenaremos nuestras tablas. 
