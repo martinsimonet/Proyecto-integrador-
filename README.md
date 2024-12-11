@@ -144,86 +144,121 @@ SELECT * FROM sleeping_patterns.lifestyle LIMIT 10;
 - **`SHOW TABLES`**: Muestra todas las tablas del esquema.
 - **`SELECT * ... LIMIT`**: Permite visualizar una muestra de los datos en cada tabla.
 
+---
 
---------------------------------------------------
+### 🧹 Paso 5: Limpieza de datos
+La limpieza de datos es un paso esencial en cualquier proyecto de análisis. Aquí identificaremos y resolveremos problemas comunes como duplicados, valores nulos y posibles inconsistencias en las tablas.
 
-# Rendimiento de los estudiantes en examenes realacinado con el uso de redes sociales 
+#### 🔍 Identificación de duplicados
+Primero verificamos si hay registros duplicados en cada tabla.
 
-## 🗂️ Paso 1: Configuración de la base de datos
-
-1. Creación del esquema y las tablas:
-Ejecuta el archivo SQL proporcionado (P_FINAL.sql) en tu entorno de base de datos para generar las tablas necesarias:
-
+- **Verificar duplicados en la tabla `students`**
 ```
-CREATE TABLE estudiantes (
-    id_estudiante INT AUTO_INCREMENT PRIMARY KEY,
-    genero VARCHAR(10),
-    raza_etnicidad VARCHAR(50),
-    id_nivel_educativo INT,
-    id_tipo_almuerzo INT,
-    id_curso_preparacion INT);
-
-CREATE TABLE niveles_educativos_padres (
-    id_nivel_educativo INT AUTO_INCREMENT PRIMARY KEY,
-    nivel_educativo VARCHAR(100)
-);
-
-CREATE TABLE tipos_almuerzo (
-    id_tipo_almuerzo INT AUTO_INCREMENT PRIMARY KEY,
-    tipo_almuerzo VARCHAR(50)
-);
-
-CREATE TABLE calificaciones (
-    id_calificacion INT AUTO_INCREMENT PRIMARY KEY,
-    id_estudiante INT,
-    math_score INT,
-    reading_score INT,
-    FOREIGN KEY (id_estudiante) REFERENCES estudiantes(id_estudiante)
-);
-
-CREATE TABLE cursos_preparacion (
-    id_curso_preparacion INT AUTO_INCREMENT PRIMARY KEY,
-    estado_preparacion VARCHAR(50)
-); 
+SELECT Student_ID, COUNT(*)
+FROM sleeping_patterns.students
+GROUP BY Student_ID
+HAVING COUNT(*) > 1;
 ```
 
-2. Verifica que las tablas hayan sido creadas correctamente:
+- **Verificar duplicados en la tabla `sleep_patterns`**
+```
+SELECT Student_ID, COUNT(*)
+FROM sleeping_patterns.sleep_patterns
+GROUP BY Student_ID
+HAVING COUNT(*) > 1;
+```
 
-   ``` SHOW TABLES; ```
+- **Verificar duplicados en la tabla `lifestyle`**
+```
+SELECT Student_ID, COUNT(*)
+FROM sleeping_patterns.lifestyle
+GROUP BY Student_ID
+HAVING COUNT(*) > 1;
+```
 
-## 📝 Paso 2: Inserción de datos
+- **Eliminar duplicados en la tabla `students`(ejemplo)**
+En nuestro caso no hemos encontrado valores duplicados. A modo informativo, para eliminar duplicados se puede realizar de la siguiente manera:
+```
+DELETE FROM sleeping_pattern.students
+WHERE Student_ID NOT IN (
+    SELECT DISTINCT Student_ID FROM (
+        SELECT Student_ID FROM sleeping_pattern.students
+    ) subquery
+);
+```
 
-Rellena las tablas con datos simulados o provenientes del dataset del proyecto:
+### ✍️ Explicación:
 
-Inserta datos en las tablas principales:
+- COUNT(*): Cuenta las filas por Student_ID.
+- HAVING COUNT(*) > 1: Filtra estudiantes con más de un registro, lo que indica duplicados.
 
-``` INSERT INTO niveles_educativos_padres (nivel_educativo)
-SELECT DISTINCT `parental level of education` FROM performance;
+#### 🔎 Detección de valores nulos
 
-INSERT INTO tipos_almuerzo (tipo_almuerzo)
-SELECT DISTINCT lunch FROM performance;
+- **Verificar valores nulos en la tabla `students`**
+```
+SELECT * 
+FROM sleeping_patterns.students
+WHERE Age IS NULL OR Gender IS NULL OR University_Year IS NULL;
+```
 
-INSERT INTO cursos_preparacion (estado_preparacion)
-SELECT DISTINCT `test preparation course` FROM performance;
+- **Verificar valores nulos en la tabla `sleep_patterns`**
+```
+SELECT * 
+FROM sleeping_patterns.sleep_patterns
+WHERE Sleep_Duration IS NULL OR Sleep_Quality IS NULL
+   OR Weekday_Sleep_Start IS NULL OR Weekday_Sleep_End IS NULL; 
+```   
+- **Verificar valores nulos en la tabla `lifestyle`**
+```
+SELECT * 
+FROM sleeping_patterns.lifestyle
+WHERE Study_Hours IS NULL OR Screen_Time IS NULL 
+   OR Caffeine_Intake IS NULL OR Physical_Activity IS NULL; 
+```
+- **En caso de encontrar dunulos plicados, la forma para eliminarlos sería la siguiente: Eliminar nulos en la tabla `students` (ejemplo)** 
+```
+UPDATE sleeping_patterns.students
+SET Age = (SELECT AVG(Age) FROM sleeping_pattern.students)
+WHERE Age IS NULL;
+```
 
-INSERT INTO estudiantes (genero, raza_etnicidad, id_nivel_educativo, id_tipo_almuerzo, id_curso_preparacion)
-SELECT 
-    gender,
-    `race/ethnicity`,
-    (SELECT id_nivel_educativo FROM niveles_educativos_padres WHERE nivel_educativo = `parental level of education`),
-    (SELECT id_tipo_almuerzo FROM tipos_almuerzo WHERE tipo_almuerzo = lunch),
-    (SELECT id_curso_preparacion FROM cursos_preparacion WHERE estado_preparacion = `test preparation course`)
-FROM performance;
+### ✍️ Explicación:
 
-INSERT INTO calificaciones (id_estudiante, math_score, reading_score)
-SELECT 
-    id_estudiante,
-    `math score`,
-    `reading score`
-FROM estudiantes
-JOIN performance ON estudiantes.genero = performance.gender
-AND estudiantes.raza_etnicidad = performance.`race/ethnicity`; '''
+- IS NULL: Identifica registros con valores faltantes en las columnas clave de cada tabla.
+- Revisión por tabla: Analizamos cada tabla individualmente para detectar problemas específicos.
+- Reemplazo con promedios: Para columnas numéricas como Age y Sleep_Duration, utilizamos el promedio.
+- Reemplazo con valores predeterminados: Para columnas como Study_Hours, asignamos un valor predeterminado, como 0, si faltan datos.
 
+### 🧪 Consistencia de datos 
 
+Por último, verificamos si los datos son consistentes entre las tablas, por ejemplo, si todos los Student_ID de las tablas relacionadas existen en la tabla principal students.
 
+- **Verificar consistencia de Student_ID entre tablas**
+```
+SELECT sp.Student_ID
+FROM sleeping_patterns.sleep_patterns sp
+LEFT JOIN sleeping_patterns.students s ON sp.Student_ID = s.Student_ID
+WHERE s.Student_ID IS NULL;
+```
 
+- **Lógica similar para la tabla `lifestyle`**
+```
+SELECT ls.Student_ID
+FROM sleeping_patterns.lifestyle ls
+LEFT JOIN sleeping_patterns.students s ON ls.Student_ID = s.Student_ID
+WHERE s.Student_ID IS NULL;
+```
+### ✍️ Explicación:
+
+- LEFT JOIN: Conectamos las tablas relacionadas con la tabla principal.
+- WHERE ... IS NULL: Detecta IDs que no tienen correspondencia, lo que podría indicar errores en las relaciones.
+
+### ✨ Resultado final de la limpieza de datos
+Con estos pasos de limpieza, hemos:
+
+- Identificado y eliminado duplicados.
+- Detectado y resuelto valores nulos.
+- Asegurado consistencia en las relaciones entre tablas.
+- Este proceso asegura que los datos estén limpios, bien estructurados y listos para análisis y visualizaciones en Power BI. 🚀
+
+---
