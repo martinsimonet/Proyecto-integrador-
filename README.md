@@ -286,9 +286,65 @@ WHERE s.Student_ID IS NULL;
 ### ✨ Resultado final de la limpieza de datos
 Con estos pasos de limpieza, hemos:
 
+----
+
+
 - Identificado y eliminado duplicados.
 - Detectado y resuelto valores nulos.
 - Asegurado consistencia en las relaciones entre tablas.
 - Este proceso asegura que los datos estén limpios, bien estructurados y listos para análisis y visualizaciones en Power BI. 🚀
 
 ---
+
+
+## 🗂️ Vistas SQL 
+### 🌟 Destacados de esta sección
+
+#### 1. 🔎 Análisis avanzado con SQL
+
+- Creación de 11 vistas optimizadas para extraer información clave.
+- Uso de funciones de agregación, casos condicionales y lógica de agrupación.
+
+#### 2. 📊 Conexión entre patrones de sueño y estilo de vida
+
+- Análisis cruzado para identificar correlaciones entre actividad física, consumo de cafeína y calidad del sueño.
+
+#### 3. 📈 Insights clave
+
+- Identificación de estudiantes con hábitos extremos.
+- Cumplimiento de las recomendaciones de sueño por grupo de edad.
+- Análisis del impacto del tiempo de pantalla en los estudios.
+
+### 🗂️ Vistas SQL
+
+#### 1. [view-AverageSleepDuration.sql](sql/vistas/view-AverageSleepDuration.sql)
+
+📌 Propósito: Calcular la duración promedio del sueño entre semana y fines de semana.
+
+💡 Resultados Clave:
+avg_weekday_sleep: 6.8 horas
+avg_weekend_sleep: 7.5 horas
+
+#### 2. [view-AvgLifestyleStats.sql](sql/vistas/view-AvgLifestyleStats.sql)
+
+📌 Propósito: Promedios de estudio, tiempo de pantalla, consumo de cafeína y actividad física.
+
+💡 Resultados Clave:
+avg_study_hours: 4.3 horas
+avg_screen_time: 5.2 horas
+avg_caffeine_intake: 1.8 tazas
+avg_physical_activity: 3.5 sesiones
+
+#### 3. [view-BalancedHabitsRanking.sql](sql/vistas/view-BalancedHabitsRanking.sql)
+
+📌 Propósito: Identificar estudiantes con hábitos más equilibrados según una métrica personalizada.
+
+#### 📜 Vistas Adicionales
+Nombre de la Vista y su	propósito
+- [view-ExtremeHabits.sql](sql/vistas/view-ExtremeHabits.sql)	|Identificar estudiantes con hábitos extremos.
+- [view-PhysicalActivityVsCaffeine.sql](sql/vistas/view-PhysicalActivityVsCaffeine.sql)	| Relación entre actividad física y consumo de cafeína.
+- [view-RecommendedSleepCompliance.sql](sql/vistas/view-RecommendedSleepCompliance.sql)	| Porcentaje de estudiantes que cumplen con el sueño recomendado.
+- [view-SleepComparison.sql](sql/vistas/view-SleepComparison.sql)	| Comparación de sueño entre semana y fines de semana.
+- [view-SleepStatsByAge.sql](sql/vistas/view-SleepStatsByAge.sql)	| Estadísticas del sueño por grupo de edad.
+- [view-StudyVsScreenTime.sql](sql/vistas/view-StudyVsScreenTime.sql)	| Análisis del impacto del tiempo de pantalla en horas de estudio.
+- [view-TotalStudents.sql](sql/vistas/view-TotalStudents.sql)	| Contar el número total de estudiantes analizados.
