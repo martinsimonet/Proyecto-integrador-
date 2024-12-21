@@ -49,7 +49,8 @@ Para asegurarnos de trabajar en el esquema correcto donde almacenaremos nuestras
 **Código SQL:**
 
 -- Seleccionar el esquema correcto
- ``` USE sleeping_patterns; ```
+
+ [1-seleccionar-esquema.sql](sql/1-seleccionar-esquema.sql)
 
 ### Explicación:
 Esto asegura que cualquier tabla que creemos o modifiquemos se haga en la base de datos sleeping_patterns.
