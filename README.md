@@ -16,6 +16,12 @@ Organizar las tablas de forma que sea fácil realizar análisis y visualizacione
 - **Limpieza de datos:**
 Detectar y manejar los valores nulos, duplicados y cualquier inconsistencia en los datos, utilizando técnicas de limpieza para asegurar que los datos sean precisos y confiables para el análisis.
 
+- **Diseñar vistas SQL avanzadas:**
+La finalidad es analizar y resumir datos clave, como hábitos de sueño, actividad física y tiempo frente a pantallas, permitiendo una interpretación rápida y eficiente de los resultados.
+
+- **Implementar stored procedures personalizados**
+Automatizar consultas complejas, generar reportes dinámicos y comparar datos, optimizando el análisis y destacando habilidades avanzadas en SQL.
+
 - **Documentar y explicar el proceso:**
 Documentar cada paso del proyecto de forma detallada, explicando el propósito de cada consulta SQL, para que el proyecto sea fácilmente entendible para otros usuarios. Además, presentar los scripts de SQL bien organizados en la carpeta sql del repositorio.
 
