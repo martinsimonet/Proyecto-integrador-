@@ -19,7 +19,7 @@ Detectar y manejar los valores nulos, duplicados y cualquier inconsistencia en l
 - **Diseñar vistas SQL avanzadas:**
 La finalidad es analizar y resumir datos clave, como hábitos de sueño, actividad física y tiempo frente a pantallas, permitiendo una interpretación rápida y eficiente de los resultados.
 
-- **Implementar stored procedures personalizados**
+- **Implementar stored procedures personalizados:**
 Automatizar consultas complejas, generar reportes dinámicos y comparar datos, optimizando el análisis y destacando habilidades avanzadas en SQL.
 
 - **Documentar y explicar el proceso:**
