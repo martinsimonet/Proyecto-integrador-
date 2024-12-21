@@ -42,15 +42,30 @@ Organizar las tablas de forma que los datos sean fácilmente exportables a herra
 ## 📝 Guía paso a paso  
 
 ### 🔨 **Paso 1: Configuración de la base de datos** 
-Incluye los pasos iniciales para establecer la base de datos y asegurarte de trabajar en el esquema correcto.
+Incluye los pasos iniciales para crear la base de datos o esquema, cargar los datos al esquema y asegurarte de trabajar en el esquema correcto.
 
-Para asegurarnos de trabajar en el esquema correcto donde almacenaremos nuestras tablas. 
+- **🗂️ Crear el Esquema**
 
-**Código SQL:**
+Ejecuta el siguiente código SQL para crear un esquema llamado sleeping_pattern y una tabla student_sleep_patterns
 
--- Seleccionar el esquema correcto
+**Código SQL:**  [crear-esquema.sql](sql/crear-esquema.sql)
 
- [1-seleccionar-esquema.sql](sql/1-seleccionar-esquema.sql)
+- **📥 Cargar los Datos desde el CSV**
+
+1. Ubica el archivo CSV: Asegúrate de que sleeping_patterns.csv esté en tu sistema o servidor.
+2. Carga los datos usando SQL: Si estás utilizando herramientas como MySQL Workbench, pgAdmin o cualquier sistema de gestión de bases de datos compatible, puedes usar el siguiente comando para cargar el archivo:
+
+ **Código SQL:** [cargar-datos-esquema.sql](sql/cargar-datos-esquema.sql)
+   
+3. Verifica la Importación:
+```
+SELECT * FROM sleeping_pattern.student_sleep_patterns LIMIT 10;
+```
+
+
+- Seleccionar el esquema correcto
+
+**Código SQL:** [1-seleccionar-esquema.sql](sql/1-seleccionar-esquema.sql)
 
 ### Explicación:
 Esto asegura que cualquier tabla que creemos o modifiquemos se haga en la base de datos sleeping_patterns.
