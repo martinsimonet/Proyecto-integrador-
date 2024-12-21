@@ -311,3 +311,7 @@ CALL sp_CompareLifestyleWithAverage(123); -- Compara al estudiante con ID 123
 - 📊 Flexibilidad en Consultas: Puedes personalizar el análisis mediante parámetros (edad, género, ID).
 - ⚡ Optimización: Reutilizas las mismas lógicas complejas en múltiples consultas sin duplicar código.
 - 🏆 Diferenciación: El uso de stored procedures muestra un manejo avanzado de SQL, destacando tu habilidad para manejar proyectos reales.
+
+  # Archivo final del esquema SQL:
+
+  [sleeping_patterns.sql](sql/archivo-final/sleeping_patterns.sql)
