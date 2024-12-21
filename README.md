@@ -237,3 +237,71 @@ Nombre de la Vista y su	propósito
 - [view-SleepStatsByAge.sql](sql/vistas/view-SleepStatsByAge.sql)	| Estadísticas del sueño por grupo de edad.
 - [view-StudyVsScreenTime.sql](sql/vistas/view-StudyVsScreenTime.sql)	| Análisis del impacto del tiempo de pantalla en horas de estudio.
 - [view-TotalStudents.sql](sql/vistas/view-TotalStudents.sql)	| Contar el número total de estudiantes analizados.
+
+---
+
+
+## 🛠️ Creación de Stored Procedures para Análisis de Datos
+
+### 📋 ¿Qué es un Stored Procedure?
+
+Un Stored Procedure es un conjunto de instrucciones SQL predefinidas que se almacenan en el servidor de base de datos.
+✅ Ventajas:
+
+- Automatiza análisis repetitivos.
+- Mejora la organización del código SQL.
+- Permite realizar consultas parametrizadas para personalizar resultados.
+
+### 🗂️ Stored Procedures Implementados
+
+**1️⃣ sp_GetStudentStatistics**
+📌 Propósito: Generar estadísticas resumidas (promedios) para un grupo específico de estudiantes según rango de edad y género.
+
+**Código SQL:**
+
+[sp_CompareLifestyleWithAverage.sql](sql/stored-procedures/sp_CompareLifestyleWithAverage.sql)
+
+**🖥️ Uso:**
+```
+CALL sp_GetStudentStatistics(18, 25, 'F'); -- Mujeres entre 18 y 25 años
+CALL sp_GetStudentStatistics(20, 30, 'ALL'); -- Todos los géneros entre 20 y 30 años
+```
+**📊 Resultado:**
+
+![image](https://github.com/user-attachments/assets/e94c9f6b-4591-4df2-a994-57e7934065f2)
+
+**2️⃣ sp_GetExtremeHabits**
+📌 Propósito: Identificar estudiantes con hábitos extremos, como horas de sueño insuficientes, exceso de tiempo frente a la pantalla o alta ingesta de cafeína.
+
+**Código SQL:**
+
+[sp_GetExtremeHabits.sql](sql/stored-procedures/sp_GetExtremeHabits.sql)
+
+**🖥️ Uso:**
+```
+CALL sp_GetExtremeHabits();
+```
+**📊 Resultado:**
+
+![image](https://github.com/user-attachments/assets/ea3afa2b-dba1-472e-bcf7-37236176032e)
+
+**3️⃣ sp_CompareLifestyleWithAverage**
+📌 Propósito: Comparar los hábitos de un estudiante específico con los promedios generales de todos los estudiantes.
+
+**Código SQL:**
+
+[sp_GetHealthyHabitsRanking.sql](sql/stored-procedures/sp_GetHealthyHabitsRanking.sql)
+
+**🖥️ Uso:**
+```
+CALL sp_CompareLifestyleWithAverage(123); -- Compara al estudiante con ID 123
+```
+**📊 Resultado:**
+
+![image](https://github.com/user-attachments/assets/72b7f3e2-7306-4ae0-ab17-88cacc8a62ce)
+
+### 🚀 Beneficios para el Proyecto
+- 🔍 Automatización de Análisis: Los procedimientos almacenados agilizan la generación de reportes y permiten responder preguntas clave con solo unos comandos.
+- 📊 Flexibilidad en Consultas: Puedes personalizar el análisis mediante parámetros (edad, género, ID).
+- ⚡ Optimización: Reutilizas las mismas lógicas complejas en múltiples consultas sin duplicar código.
+- 🏆 Diferenciación: El uso de stored procedures muestra un manejo avanzado de SQL, destacando tu habilidad para manejar proyectos reales.
