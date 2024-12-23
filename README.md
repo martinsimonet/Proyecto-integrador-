@@ -24,7 +24,7 @@ Automatizar consultas complejas, generar reportes dinámicos y comparar datos, o
 
 - **Documentar y explicar el proceso:**
 Documentar cada paso del proyecto de forma detallada, explicando el propósito de cada consulta SQL, para que el proyecto sea fácilmente entendible para otros usuarios. Además, presentar los scripts de SQL bien organizados en la carpeta sql del repositorio.
-
+ 
 - **Demostrar habilidades en SQL:**
 Mostrar el dominio de funciones avanzadas de SQL (como JOIN, GROUP BY, HAVING, etc.) y la capacidad para manejar grandes cantidades de datos de forma eficiente.
 
