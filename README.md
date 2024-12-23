@@ -315,3 +315,67 @@ CALL sp_CompareLifestyleWithAverage(123); -- Compara al estudiante con ID 123
   # Archivo final del esquema SQL:
 
   [sleeping_patterns.sql](sql/archivo-final/sleeping_patterns.sql)
+
+## Conclusiones Generales 🌟
+
+#### 1. Promedio de sueño🛌🌙:
+
+- El promedio de sueño de los estudiantes es 6.47 horas, lo que está por debajo del rango recomendado de 7-9 horas diarias según expertos en salud.
+- Esto podría sugerir una tendencia general de déficit de sueño en los estudiantes, lo que puede impactar negativamente en su rendimiento académico y bienestar general.
+
+#### 2.Estilo de vida 🕒🚶‍♀️
+
+- Horas de estudio: Los estudiantes dedican un promedio de 5.98 horas diarias al estudio, lo que refleja un compromiso significativo con sus responsabilidades académicas.
+- Tiempo de pantalla: El tiempo promedio de pantalla es de 2.53 horas, que aunque moderado, podría estar relacionado con una reducción en la calidad de sueño debido a la exposición a dispositivos electrónicos.
+- Consumo de cafeína: El consumo promedio de cafeína es de 2.46 tazas por día, lo que puede estar contribuyendo a la interrupción del sueño, especialmente si se consume en las horas cercanas al descanso.
+- Actividad física: El promedio de actividad física es de 62.34 minutos diarios, lo que sugiere que algunos estudiantes mantienen hábitos saludables en este aspecto. Sin embargo, sería interesante analizar si hay correlación entre la actividad física y la calidad del sueño.
+
+#### 3.Cumplimiento de recomendaciones de sueño 🎯 
+
+- Solo 42.8% de los estudiantes cumplen con las recomendaciones de sueño diario. Esto resalta la necesidad de promover una mejor higiene del sueño y concienciar sobre su importancia para la salud y el rendimiento académico.
+
+#### 4. Rango de sueño registrado 📚😴
+
+- El rango de sueño varía entre 4 y 9 horas, con un promedio de 6.47 horas.
+- La cantidad mínima registrada de 4 horas es alarmante y puede estar relacionada con un estilo de vida extremo, como largas horas de estudio o tiempo excesivo frente a pantallas.
+
+
+## Posibles recomendaciones
+
+#### 1. Mejorar la higiene del sueño
+- Fomentar horarios regulares para dormir y despertarse, incluso los fines de semana.
+- Reducir el tiempo frente a pantallas antes de dormir y limitar el consumo de cafeína por las tardes.
+
+#### 2. Equilibrar estudio y descanso
+- Aunque los estudiantes dedican un promedio razonable a estudiar (5.98 horas), podrían beneficiarse de estrategias de gestión del tiempo para mantener un equilibrio saludable entre sus responsabilidades y el descanso.
+
+#### 3. Promoción de actividad física
+
+- Los estudiantes que realizan más de 60 minutos de actividad física diaria podrían estar mejorando su calidad de sueño, lo que refuerza la importancia de incorporar ejercicio regular en sus rutinas.
+
+## Reflexión técnica 🛠️💡
+
+#### Impacto de las herramientas SQL 🗄️🔍
+
+- La creación de vistas SQL y stored procedures permitió transformar datos crudos en información procesable y relevante.
+- Con vistas como SleepComparison 🕒 y BalancedHabitsRanking 🏆, fue posible identificar patrones clave de comportamiento y hábitos estudiantiles.
+
+#### Optimización y reutilización 📈♻️
+
+- Las vistas y procedimientos almacenados no solo facilitaron el análisis, sino que también hicieron el proceso más eficiente al evitar cálculos repetitivos.
+- Estas herramientas pueden ser reutilizadas fácilmente en proyectos futuros o ampliadas para incorporar nuevos datos.
+
+#### Colaboración y presentación 🧑‍🤝‍🧑📊
+
+- Al estructurar el proyecto en un esquema organizado y exportable, el análisis es accesible para otros colaboradores, fomentando el trabajo en equipo.
+- El uso de herramientas como MySQL Workbench y la exportación de un esquema completo 🌐📦 asegura que el proyecto sea fácil de compartir e integrar en otras plataformas.
+
+#### Valor añadido para el portfolio 💼✨
+
+- Incorporar análisis avanzados como estadísticas, vistas comparativas y stored procedures muestra un alto nivel de conocimiento técnico y comprensión de los datos.
+- Este enfoque resalta no solo la capacidad para usar SQL, sino también para aplicar pensamiento analítico y resolver problemas reales 🧠🔗.
+
+#### Futuras extensiones 🔮🚀
+
+- Integrar estas vistas y procedimientos con herramientas de visualización como Tableau 📊 o Power BI 📈 puede mejorar la comunicación de resultados y hacerlos más impactantes.
+- Expandir el análisis a otras áreas, como el rendimiento académico en relación con el sueño, podría proporcionar un contexto más rico y significativo.
