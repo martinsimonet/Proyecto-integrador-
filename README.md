@@ -1,8 +1,10 @@
 # 🛌 Proyecto Integrador: Análisis de Patrones de Sueño en Estudiantes 
 
+## Introducción 
+
 Este proyecto forma parte del **bootcamp de análisis de datos en Unicorn Academy** 🎓. Aquí exploraremos cómo los patrones de sueño afectan el rendimiento académico, utilizando herramientas como SQL para el análisis y GitHub para la documentación.  
 
-## 🚀 Objetivo  
+## 🚀 Objetivos  
 
 - **Organizar y estructurar la base de datos:**
 Crear un esquema bien estructurado para almacenar los datos relacionados con los patrones de sueño de los estudiantes. Esto incluye dividir la información en varias tablas para facilitar el análisis y mejorar el rendimiento de las consultas.
@@ -34,7 +36,7 @@ Mantener un repositorio de GitHub limpio y bien estructurado con una documentaci
 - **Optimizar la base de datos para futuras visualizaciones:**
 Organizar las tablas de forma que los datos sean fácilmente exportables a herramientas de visualización de datos, como Power BI o Tableau, permitiendo un análisis visual efectivo en el futuro.
 ---
-## Giua de inicio
+## Configuración del proyecto ⚙️
 
 ### Acceso a los datos crudos 
 
@@ -54,12 +56,24 @@ Organizar las tablas de forma que los datos sean fácilmente exportables a herra
 #### El paso a paso de como llegue al [archivo-final.sql](sql/archivo-final/archivo-final.sql) se explica en el abajo 👇
 ---
 
-## Índice del Proyecto
-1. [🔑 Seleccionar esquema](sql/1-seleccionar-esquema.sql)  
-2. [🏗️ Creación de tablas](sql/2-creación-de-tablas.sql)  
-3. [📥 Popular tablas](sql/3-popular-tablas.sql)  
-4. [✅ Verificación de tablas](sql/4-verificación-tablas.sql)  
-5. [🧹 Limpieza de datos](sql/5-limpieza-de-datos.sql)  
+## Índice del Proyecto 👇
+
+## Índice  
+
+
+1. [Introducción](#introducción)  
+2. [🚀 Objetivos](#-objetivos)  
+3. [📝 Guía paso a paso](#-guía-paso-a-paso)  
+   - [🔨 Paso 1: Configuración de la base de datos](#-paso-1-configuración-de-la-base-de-datos)  
+   - [🛠️ Paso 2: Creación de tablas](#paso-2-creación-de-tablas)
+   - [📤 Paso 3: Poblar las tablas](#-paso-3-poblar-las-tablas)  
+   - [📊 Paso 4: Verificar la estructura y datos](#-paso-4-verificar-la-estructura-y-datos)  
+   - [🧹 Paso 5: Limpieza de datos](#-paso-5-limpieza-de-datos)  
+4. [🗂️ Vistas SQL](#-vistas-sql)
+5. [🛠️ Creación de Stored Procedures para Análisis de Datos](#-creación-de-stored-procedures-para-análisis-de-datos)  
+6. [🌟 Conclusiones Generales](#-conclusiones-generales)  
+
+
 ---
 
 ## 📝 Guía paso a paso  
@@ -119,7 +133,7 @@ Para mejorar la organización y el análisis de los datos, dividimos la tabla or
 
 ---
 
-### **📤 Paso 3: Poblar las tablas**
+### 📤 Paso 3: Poblar las tablas
 Explicamos cómo transferimos los datos de la tabla original `student_sleep_patterns` a las nuevas tablas.
 Transferimos los datos de la tabla original a las nuevas tablas utilizando consultas `INSERT INTO ... SELECT`.
 
