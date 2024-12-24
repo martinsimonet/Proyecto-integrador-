@@ -65,12 +65,12 @@ Organizar las tablas de forma que los datos sean fácilmente exportables a herra
 2. [🚀 Objetivos](#-objetivos)  
 3. [📝 Guía paso a paso](#-guía-paso-a-paso)  
    - [🔨 Paso 1: Configuración de la base de datos](#-paso-1-configuración-de-la-base-de-datos)  
-   - [🛠️ Paso 2: Creación de tablas](#paso-2-creación-de-tablas)
+   - [Paso 2: Creacion de tablas](#paso-2-creacion-de-tablas)
    - [📤 Paso 3: Poblar las tablas](#-paso-3-poblar-las-tablas)  
    - [📊 Paso 4: Verificar la estructura y datos](#-paso-4-verificar-la-estructura-y-datos)  
    - [🧹 Paso 5: Limpieza de datos](#-paso-5-limpieza-de-datos)  
-4. [🗂️ Vistas SQL](#-vistas-sql)
-5. [🛠️ Creación de Stored Procedures para Análisis de Datos](#-creación-de-stored-procedures-para-análisis-de-datos)  
+4. [Vistas SQL](#vistas-sql)
+5. [Creación de Stored Procedures para Análisis de Datos](#creacion-de-stored-procedures-para-analisis-de-datos)
 6. [🌟 Conclusiones Generales](#-conclusiones-generales)  
 
 
@@ -112,7 +112,7 @@ Esto asegura que cualquier tabla que creemos o modifiquemos se haga en la base d
 
 
 
-### 🛠️ Paso 2: Creación de tablas
+### Paso 2: Creacion de tablas
 Aquí explicamos cómo se separaron los datos en tres tablas: `students`, `sleep_patterns` y `lifestyle`.
 Para mejorar la organización y el análisis de los datos, dividimos la tabla original `student_sleep_patterns` en tres tablas relacionadas:
 
@@ -223,7 +223,7 @@ Con estos pasos de limpieza, hemos:
 ---
 
 
-## 🗂️ Vistas SQL 
+## Vistas SQL 
 ### 🌟 Destacados de esta sección
 
 #### 1. 🔎 Análisis avanzado con SQL
