@@ -58,8 +58,6 @@ Organizar las tablas de forma que los datos sean fácilmente exportables a herra
 
 ## Índice del Proyecto 👇
 
-## Índice  
-
 
 1. [Introducción](#introducción)  
 2. [🚀 Objetivos](#-objetivos)  
