@@ -33,8 +33,25 @@ Mantener un repositorio de GitHub limpio y bien estructurado con una documentaci
 
 - **Optimizar la base de datos para futuras visualizaciones:**
 Organizar las tablas de forma que los datos sean fácilmente exportables a herramientas de visualización de datos, como Power BI o Tableau, permitiendo un análisis visual efectivo en el futuro.
+---
+## Giua de inicio
 
+### Acceso a los datos crudos 
 
+**Haz Click:** [sleeping_patterns.csv](sql/raw-data/sleeping_patterns.csv)
+
+### Acceso al archivo final de sql
+
+**Haz Click:** [archivo-final.sql](sql/archivo-final/archivo-final.sql) 
+
+ - Paso 1: descarga el archivo del hyeperlink
+ - Paso 2: abre el archivo utilizando el server de sql a elección
+ - Paso 3: ejecuta el código
+
+**Resultado:**
+- Luego de seguis los pasos 1, 2 y 3, tendrás es esquma creado, asi como las tablas, vistas y stored procedures.
+
+#### El paso a paso de como llegue al [archivo-final.sql](sql/archivo-final/archivo-final.sql) se explica en el abajo 👇
 ---
 
 ## Índice del Proyecto
